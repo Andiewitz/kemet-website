@@ -1,21 +1,23 @@
 import { AnimatePresence, MotionConfig, motion } from 'motion/react'
-import { useEffect } from 'react'
+import { lazy, Suspense, useEffect } from 'react'
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router'
 
 import { Footer } from './components/Footer'
 import { ToastProvider } from './components/Toast'
 import { StoreProvider } from './lib/store'
-import { Book } from './pages/Book'
-import { Contact } from './pages/Contact'
-import { DestinationPage } from './pages/Destination'
-import { Destinations } from './pages/Destinations'
 import { Home } from './pages/Home'
-import { NotFound } from './pages/NotFound'
-import { Reviews } from './pages/Reviews'
-import { Styleguide } from './pages/Styleguide'
-import { TourPage } from './pages/Tour'
-import { Tours } from './pages/Tours'
-import { Trips } from './pages/Trips'
+
+// Home is in the first bundle; every other route loads on navigation.
+const Book = lazy(() => import('./pages/Book').then((m) => ({ default: m.Book })))
+const Contact = lazy(() => import('./pages/Contact').then((m) => ({ default: m.Contact })))
+const DestinationPage = lazy(() => import('./pages/Destination').then((m) => ({ default: m.DestinationPage })))
+const Destinations = lazy(() => import('./pages/Destinations').then((m) => ({ default: m.Destinations })))
+const NotFound = lazy(() => import('./pages/NotFound').then((m) => ({ default: m.NotFound })))
+const Reviews = lazy(() => import('./pages/Reviews').then((m) => ({ default: m.Reviews })))
+const Styleguide = lazy(() => import('./pages/Styleguide').then((m) => ({ default: m.Styleguide })))
+const TourPage = lazy(() => import('./pages/Tour').then((m) => ({ default: m.TourPage })))
+const Tours = lazy(() => import('./pages/Tours').then((m) => ({ default: m.Tours })))
+const Trips = lazy(() => import('./pages/Trips').then((m) => ({ default: m.Trips })))
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation()
@@ -29,10 +31,18 @@ function ScrollToTop() {
   return null
 }
 
+function PageFallback() {
+  return (
+    <div className="flex min-h-[60svh] items-center justify-center" role="status">
+      <span className="sr-only">Loading page</span>
+    </div>
+  )
+}
+
 function Pages() {
   const location = useLocation()
   return (
-    <AnimatePresence mode="wait" initial={false}>
+    <AnimatePresence mode="wait">
       <motion.main
         id="main"
         key={location.pathname}
@@ -42,19 +52,21 @@ function Pages() {
         transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
         className="flex-1"
       >
-        <Routes location={location}>
-          <Route index element={<Home />} />
-          <Route path="tours" element={<Tours />} />
-          <Route path="tours/:slug" element={<TourPage />} />
-          <Route path="book/:slug" element={<Book />} />
-          <Route path="destinations" element={<Destinations />} />
-          <Route path="destinations/:slug" element={<DestinationPage />} />
-          <Route path="reviews" element={<Reviews />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="trips" element={<Trips />} />
-          <Route path="styleguide" element={<Styleguide />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <Suspense fallback={<PageFallback />}>
+          <Routes location={location}>
+            <Route index element={<Home />} />
+            <Route path="tours" element={<Tours />} />
+            <Route path="tours/:slug" element={<TourPage />} />
+            <Route path="book/:slug" element={<Book />} />
+            <Route path="destinations" element={<Destinations />} />
+            <Route path="destinations/:slug" element={<DestinationPage />} />
+            <Route path="reviews" element={<Reviews />} />
+            <Route path="contact" element={<Contact />} />
+            <Route path="trips" element={<Trips />} />
+            <Route path="styleguide" element={<Styleguide />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
       </motion.main>
     </AnimatePresence>
   )

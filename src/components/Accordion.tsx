@@ -1,4 +1,4 @@
-import { Plus } from 'lucide-react'
+import Plus from 'lucide-react/icons/plus'
 import { AnimatePresence, motion } from 'motion/react'
 import { useId, useState, type ReactNode } from 'react'
 

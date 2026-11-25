@@ -1,4 +1,6 @@
-import { Search, SlidersHorizontal, X } from 'lucide-react'
+import Search from 'lucide-react/icons/search'
+import SlidersHorizontal from 'lucide-react/icons/sliders-horizontal'
+import X from 'lucide-react/icons/x'
 import { useMemo } from 'react'
 import { useSearchParams } from 'react-router'
 

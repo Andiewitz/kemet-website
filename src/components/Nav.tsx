@@ -1,4 +1,6 @@
-import { ChevronDown, Heart, Menu } from 'lucide-react'
+import ChevronDown from 'lucide-react/icons/chevron-down'
+import Heart from 'lucide-react/icons/heart'
+import Menu from 'lucide-react/icons/menu'
 import { AnimatePresence, motion } from 'motion/react'
 import { useEffect, useId, useRef, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router'

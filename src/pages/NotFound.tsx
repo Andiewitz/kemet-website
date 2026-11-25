@@ -1,4 +1,4 @@
-import { Compass } from 'lucide-react'
+import Compass from 'lucide-react/icons/compass'
 
 import { ButtonLink } from '../components/Button'
 import { PageHero } from '../components/PageHero'

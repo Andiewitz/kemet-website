@@ -1,4 +1,5 @@
-import { Minus, Plus } from 'lucide-react'
+import Minus from 'lucide-react/icons/minus'
+import Plus from 'lucide-react/icons/plus'
 
 import { cx } from '../lib/cx'
 import { IconButton } from './Button'

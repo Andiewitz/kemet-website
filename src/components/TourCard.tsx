@@ -1,4 +1,6 @@
-import { Clock, Heart, Users } from 'lucide-react'
+import Clock from 'lucide-react/icons/clock'
+import Heart from 'lucide-react/icons/heart'
+import Users from 'lucide-react/icons/users'
 import { Link } from 'react-router'
 
 import type { Tour } from '../data'
@@ -35,7 +37,12 @@ export function TourCard({ tour, className, priority }: { tour: Tour; className?
   return (
     <article className={cx('group relative flex flex-col gap-4', className)}>
       <div className="relative aspect-[4/3] overflow-hidden rounded-[var(--radius-md)] bg-sand">
-        <Photo name={tour.photo} alt="" loading={priority ? 'eager' : 'lazy'} className="size-full object-cover transition-transform duration-[var(--duration-slow)] ease-[var(--ease-out-soft)] group-hov:scale-[1.05]" />
+        <Photo
+          name={tour.photo}
+          alt=""
+          loading={priority ? 'eager' : 'lazy'}
+          sizes="(min-width: 1536px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+          className="size-full object-cover transition-transform duration-[var(--duration-slow)] ease-[var(--ease-out-soft)] group-hov:scale-[1.05]" />
         {tour.badge && <Badge tone="glass" className="absolute top-3 left-3">{tour.badge}</Badge>}
         <SaveButton slug={tour.slug} title={tour.title} className="absolute top-3 right-3 z-10" />
       </div>

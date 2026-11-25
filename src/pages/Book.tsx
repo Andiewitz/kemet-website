@@ -1,4 +1,9 @@
-import { ArrowLeft, ArrowRight, CalendarCheck, Check, Mail, ShieldCheck } from 'lucide-react'
+import ArrowLeft from 'lucide-react/icons/arrow-left'
+import ArrowRight from 'lucide-react/icons/arrow-right'
+import CalendarCheck from 'lucide-react/icons/calendar-check'
+import Check from 'lucide-react/icons/check'
+import Mail from 'lucide-react/icons/mail'
+import ShieldCheck from 'lucide-react/icons/shield-check'
 import { useEffect, useMemo, useRef, useState, type FormEvent } from 'react'
 import { Link, useParams, useSearchParams } from 'react-router'
 
@@ -322,7 +327,7 @@ export function Book() {
 
         <aside aria-label="Trip summary" className="lg:sticky lg:top-6 lg:self-start">
           <div className="overflow-hidden rounded-[var(--radius-md)] bg-surface shadow-lift">
-            <Photo name={tour.photo} alt="" className="aspect-[16/9] w-full object-cover" />
+            <Photo name={tour.photo} alt="" sizes="(min-width: 1024px) 50vw, 100vw" className="aspect-[16/9] w-full object-cover" />
             <div className="flex flex-col gap-4 p-6">
               <div>
                 <p className="text-[12px] tracking-wide text-body uppercase">{tour.days} days · {tour.route}</p>

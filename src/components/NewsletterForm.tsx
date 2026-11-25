@@ -1,4 +1,4 @@
-import { ArrowRight } from 'lucide-react'
+import ArrowRight from 'lucide-react/icons/arrow-right'
 import { useState, type FormEvent } from 'react'
 
 import { postJson } from '../lib/api'

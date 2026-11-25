@@ -1,4 +1,4 @@
-import { Quote } from 'lucide-react'
+import Quote from 'lucide-react/icons/quote'
 import { Link } from 'react-router'
 
 import { TOURS } from '../data'

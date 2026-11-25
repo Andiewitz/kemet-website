@@ -1,6 +1,7 @@
 // Every photograph on the site is routed through this one map. The files in
 // public/images are generated placeholders: replace them with your own
-// photography (keep the keys) and every page picks them up.
+// photography (keep the keys) and every page picks them up. Each source has
+// smaller `<key>-<width>.webp` siblings generated beside it for srcset.
 export const IMAGES = {
   hero: '/images/hero.webp',
   heroFront: '/images/hero-front.webp',
@@ -18,6 +19,23 @@ export const IMAGES = {
 } as const
 
 export type PhotoKey = keyof typeof IMAGES
+
+/** Intrinsic size of each source and the resized widths that exist beside it. */
+export const IMAGE_META: Record<PhotoKey, { width: number; height: number; widths: number[] }> = {
+  hero: { width: 1536, height: 1024, widths: [480, 768, 960, 1280] },
+  heroFront: { width: 1536, height: 1024, widths: [480, 768, 960, 1280] },
+  camel: { width: 993, height: 1503, widths: [320, 480, 760] },
+  dunes: { width: 1536, height: 1024, widths: [480, 768, 960] },
+  temple: { width: 1024, height: 1536, widths: [360, 540, 800] },
+  felucca: { width: 1536, height: 1024, widths: [480, 768, 960] },
+  balloons: { width: 1536, height: 1024, widths: [480, 768, 960] },
+  abuSimbel: { width: 1536, height: 1024, widths: [480, 768, 960] },
+  redSea: { width: 1536, height: 1024, widths: [480, 768, 960] },
+  whiteDesert: { width: 1536, height: 1024, widths: [480, 768, 960] },
+  cairo: { width: 1536, height: 1024, widths: [480, 768, 960] },
+  dahabiya: { width: 1536, height: 1024, widths: [480, 768, 960] },
+  philae: { width: 1536, height: 1024, widths: [480, 768, 960] },
+}
 
 /** Short descriptions used as alt text wherever a photo carries meaning. */
 export const IMAGE_ALT: Record<PhotoKey, string> = {

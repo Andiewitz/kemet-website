@@ -1,4 +1,6 @@
-import { AlertCircle, Check, ChevronDown } from 'lucide-react'
+import AlertCircle from 'lucide-react/icons/alert-circle'
+import Check from 'lucide-react/icons/check'
+import ChevronDown from 'lucide-react/icons/chevron-down'
 import { cloneElement, isValidElement, useId, type InputHTMLAttributes, type ReactElement, type ReactNode, type SelectHTMLAttributes, type TextareaHTMLAttributes } from 'react'
 
 import { cx } from '../lib/cx'

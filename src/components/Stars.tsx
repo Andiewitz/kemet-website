@@ -1,4 +1,4 @@
-import { Star } from 'lucide-react'
+import Star from 'lucide-react/icons/star'
 import { useId, useState } from 'react'
 
 import { cx } from '../lib/cx'

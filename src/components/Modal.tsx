@@ -1,4 +1,4 @@
-import { X } from 'lucide-react'
+import X from 'lucide-react/icons/x'
 import { AnimatePresence, motion } from 'motion/react'
 import { useId, useRef, type ReactNode } from 'react'
 import { createPortal } from 'react-dom'

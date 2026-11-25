@@ -15,6 +15,8 @@ bun install
 bun run dev        # http://localhost:5318 (Vite + the Worker in workerd)
 bun run typecheck
 bun run build      # dist/client (assets) + dist/tour_operator/index.js (Worker)
+bun run serve      # serve the built site on http://127.0.0.1:43222 with SPA fallback + caching
+bun run serve:build # build, then serve — the fast preview used for this project
 ```
 
 ## Pages

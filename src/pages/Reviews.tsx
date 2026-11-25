@@ -1,4 +1,5 @@
-import { MessageSquarePlus, Star } from 'lucide-react'
+import MessageSquarePlus from 'lucide-react/icons/message-square-plus'
+import Star from 'lucide-react/icons/star'
 import { useMemo, useState, type FormEvent } from 'react'
 
 import { Button } from '../components/Button'

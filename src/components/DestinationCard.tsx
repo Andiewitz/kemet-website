@@ -1,4 +1,4 @@
-import { ArrowUpRight } from 'lucide-react'
+import ArrowUpRight from 'lucide-react/icons/arrow-up-right'
 import { Link } from 'react-router'
 
 import type { Destination } from '../data'
@@ -9,7 +9,12 @@ import { Photo } from './Photo'
 export function DestinationCard({ d, tours, className }: { d: Destination; tours: number; className?: string }) {
   return (
     <Link to={`/destinations/${d.slug}`} className={cx('group relative isolate flex min-h-[380px] flex-col justify-end overflow-hidden rounded-[var(--radius-md)] bg-ink p-6 text-white on-dark', className)}>
-      <Photo name={d.photo} alt="" loading="lazy" className="absolute inset-0 -z-10 size-full object-cover transition-transform duration-[var(--duration-slow)] ease-[var(--ease-out-soft)] group-hov:scale-[1.06]" />
+      <Photo
+        name={d.photo}
+        alt=""
+        loading="lazy"
+        sizes="(min-width: 1024px) 50vw, 100vw"
+        className="absolute inset-0 -z-10 size-full object-cover transition-transform duration-[var(--duration-slow)] ease-[var(--ease-out-soft)] group-hov:scale-[1.06]" />
       <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,transparent_35%,rgb(29_26_22/0.82)_100%)]" />
       <span className="absolute top-4 right-4 inline-flex size-10 items-center justify-center rounded-full border border-white/80 transition-colors group-hov:bg-white group-hov:text-ink">
         <ArrowUpRight className="size-5" aria-hidden />

@@ -1,4 +1,8 @@
-import { ArrowRight, Heart, Mail, RotateCcw, Search } from 'lucide-react'
+import ArrowRight from 'lucide-react/icons/arrow-right'
+import Heart from 'lucide-react/icons/heart'
+import Mail from 'lucide-react/icons/mail'
+import RotateCcw from 'lucide-react/icons/rotate-ccw'
+import Search from 'lucide-react/icons/search'
 import { useState, type ReactNode } from 'react'
 
 import { Accordion } from '../components/Accordion'

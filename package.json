@@ -7,6 +7,8 @@
     "dev": "vite --host 0.0.0.0",
     "build": "vite build && node scripts/postbuild.mjs",
     "preview": "vite preview",
+    "serve": "node scripts/serve.mjs",
+    "serve:build": "bun run build && node scripts/serve.mjs",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

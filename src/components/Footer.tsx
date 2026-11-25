@@ -1,4 +1,6 @@
-import { Mail, MapPin, Phone } from 'lucide-react'
+import Mail from 'lucide-react/icons/mail'
+import MapPin from 'lucide-react/icons/map-pin'
+import Phone from 'lucide-react/icons/phone'
 import { useState } from 'react'
 import { Link } from 'react-router'
 

@@ -1,4 +1,8 @@
-import { Clock, Mail, MapPin, Phone, Send } from 'lucide-react'
+import Clock from 'lucide-react/icons/clock'
+import Mail from 'lucide-react/icons/mail'
+import MapPin from 'lucide-react/icons/map-pin'
+import Phone from 'lucide-react/icons/phone'
+import Send from 'lucide-react/icons/send'
 import { useEffect, useState, type FormEvent } from 'react'
 import { useLocation, useSearchParams } from 'react-router'
 
@@ -115,7 +119,7 @@ export function Contact() {
         </section>
         <aside aria-label="Our office" className="flex flex-col gap-5">
           <div className="overflow-hidden rounded-[var(--radius-md)]">
-            <Photo name="felucca" loading="lazy" className="aspect-[16/10] w-full object-cover" />
+            <Photo name="felucca" loading="lazy" sizes="(min-width: 1024px) 50vw, 100vw" className="aspect-[16/10] w-full object-cover" />
           </div>
           <ul className="flex flex-col gap-3 rounded-[var(--radius-md)] bg-peach p-6 text-[14px] text-ink">
             <li className="flex gap-3"><MapPin className="mt-0.5 size-4 shrink-0" aria-hidden />{BRAND.address}</li>

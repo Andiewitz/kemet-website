@@ -1,4 +1,7 @@
-import { ArrowRight, CalendarDays, Plane, Sun } from 'lucide-react'
+import ArrowRight from 'lucide-react/icons/arrow-right'
+import CalendarDays from 'lucide-react/icons/calendar-days'
+import Plane from 'lucide-react/icons/plane'
+import Sun from 'lucide-react/icons/sun'
 import { motion } from 'motion/react'
 import { Link } from 'react-router'
 
@@ -24,7 +27,7 @@ function Hero() {
   return (
     <HeroFrame
       className="h-[clamp(640px,calc(100svh-40px),900px)]"
-      background={<Photo name="hero" alt="" className={layer} fetchPriority="high" />}
+      background={<Photo name="hero" alt="" sizes="100vw" className={layer} fetchPriority="high" />}
     >
       {/* The headline sits between the sky and a cut-out of the pyramids, so their tips rise through the letters. */}
       <h1 className="pointer-events-none absolute inset-x-0 top-[23%] z-0 select-none lg:top-[21%]">
@@ -40,7 +43,7 @@ function Hero() {
         </motion.span>
         <span className="sr-only">{BRAND.fullName}: {HOME.heroTitle}</span>
       </h1>
-      <Photo name="heroFront" alt="" aria-hidden className={`${layer} pointer-events-none z-[1]`} />
+      <Photo name="heroFront" alt="" aria-hidden sizes="100vw" className={`${layer} pointer-events-none z-[1]`} />
       <div className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(ellipse_70%_55%_at_12%_100%,rgb(60_35_15/0.55),transparent_70%)]" />
       <motion.div
         className="pointer-events-none absolute right-[-6%] bottom-0 z-[2] h-[36%] sm:right-[-1%] sm:h-[52%] lg:h-[58%]"
@@ -48,7 +51,12 @@ function Hero() {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1.1, delay: 0.45, ease }}
       >
-        <Photo name="camel" alt="" className="h-full w-auto object-contain drop-shadow-[0_20px_30px_rgb(40_20_5/0.35)]" />
+        <Photo
+          name="camel"
+          alt=""
+          sizes="(min-width: 1024px) 360px, 46vw"
+          className="h-full w-auto object-contain drop-shadow-[0_20px_30px_rgb(40_20_5/0.35)]"
+        />
       </motion.div>
 
       <div className="relative z-[3] mt-auto flex flex-col gap-8 px-5 pb-8 sm:px-[6.5%] sm:pb-11">
@@ -93,7 +101,12 @@ function Discover() {
         </Link>
       </Reveal>
       <Reveal delay={0.1} className="overflow-hidden rounded-[var(--radius-md)]">
-        <Photo name="dunes" loading="lazy" className="aspect-[16/8] w-full object-cover transition-transform duration-[1.2s] ease-[var(--ease-out-soft)] hover:scale-[1.03]" />
+        <Photo
+          name="dunes"
+          loading="lazy"
+          sizes="(min-width: 1024px) 62vw, 100vw"
+          className="aspect-[16/8] w-full object-cover transition-transform duration-[1.2s] ease-[var(--ease-out-soft)] hover:scale-[1.03]"
+        />
       </Reveal>
     </section>
   )
@@ -118,7 +131,12 @@ function WhyEgypt() {
     <section className="mx-auto mt-28 max-w-[1600px] px-3 sm:mt-40 sm:px-4 lg:px-5">
       <Reveal className="grid gap-8 rounded-[var(--radius-sm)] bg-peach p-4 sm:p-6 md:grid-cols-[minmax(220px,300px)_1fr] lg:grid-cols-[minmax(240px,320px)_1fr_minmax(220px,300px)] lg:items-center lg:gap-14 lg:p-7">
         <div className="relative overflow-hidden rounded-[var(--radius-sm)]">
-          <Photo name="temple" loading="lazy" className="aspect-[3/4] w-full object-cover max-md:aspect-[4/3]" />
+          <Photo
+            name="temple"
+            loading="lazy"
+            sizes="(min-width: 1024px) 320px, (min-width: 768px) 40vw, 100vw"
+            className="aspect-[3/4] w-full object-cover max-md:aspect-[4/3]"
+          />
           <span className="absolute top-3 left-3 rounded-full bg-white/85 px-3 py-1 text-[12px] font-medium text-ink backdrop-blur">{HOME.why.photoLabel}</span>
           <ButtonLink to="/destinations" variant="light" size="sm" className="absolute bottom-4 left-1/2 -translate-x-1/2 text-[12px]" iconRight={<ArrowRight className="size-3.5" aria-hidden />}>
             {HOME.why.cta}

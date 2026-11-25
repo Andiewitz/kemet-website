@@ -1,4 +1,7 @@
-import { CalendarDays, Heart, Luggage, Users } from 'lucide-react'
+import CalendarDays from 'lucide-react/icons/calendar-days'
+import Heart from 'lucide-react/icons/heart'
+import Luggage from 'lucide-react/icons/luggage'
+import Users from 'lucide-react/icons/users'
 import { useState } from 'react'
 import { Link } from 'react-router'
 
@@ -23,7 +26,7 @@ function TripCard({ trip, onCancel }: { trip: Trip; onCancel: () => void }) {
   const party = trip.adults + trip.children
   return (
     <article className="grid overflow-hidden rounded-[var(--radius-md)] bg-surface shadow-card sm:grid-cols-[240px_1fr]">
-      <Photo name={tour.photo} alt="" className="aspect-[16/9] h-full w-full object-cover sm:aspect-auto" />
+      <Photo name={tour.photo} alt="" sizes="(min-width: 640px) 240px, 100vw" className="aspect-[16/9] h-full w-full object-cover sm:aspect-auto" />
       <div className="flex flex-col gap-4 p-6">
         <div className="flex flex-wrap items-center gap-2">
           <Badge tone={cancelled ? 'neutral' : 'success'}>{cancelled ? 'Cancelled' : 'Awaiting confirmation'}</Badge>

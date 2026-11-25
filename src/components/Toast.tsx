@@ -1,4 +1,5 @@
-import { CheckCircle2, X } from 'lucide-react'
+import CheckCircle2 from 'lucide-react/icons/circle-check'
+import X from 'lucide-react/icons/x'
 import { AnimatePresence, motion } from 'motion/react'
 import { createContext, useCallback, useContext, useState, type ReactNode } from 'react'
 

@@ -1,4 +1,5 @@
-import { ArrowUpRight, LoaderCircle } from 'lucide-react'
+import ArrowUpRight from 'lucide-react/icons/arrow-up-right'
+import LoaderCircle from 'lucide-react/icons/loader-circle'
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react'
 import { Link, type LinkProps } from 'react-router'
 

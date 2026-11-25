@@ -1,4 +1,10 @@
-import { Check, Clock, Gauge, MapPin, MessageCircle, Minus, Users } from 'lucide-react'
+import Check from 'lucide-react/icons/check'
+import Clock from 'lucide-react/icons/clock'
+import Gauge from 'lucide-react/icons/gauge'
+import MapPin from 'lucide-react/icons/map-pin'
+import MessageCircle from 'lucide-react/icons/message-circle'
+import Minus from 'lucide-react/icons/minus'
+import Users from 'lucide-react/icons/users'
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
@@ -108,14 +114,14 @@ function Gallery({ photos }: { photos: PhotoKey[] }) {
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
         {shown.map((p, i) => (
           <button key={p} type="button" onClick={() => setOpen(i)} className={cx('group overflow-hidden rounded-[var(--radius-sm)]', i === 0 && 'col-span-2 sm:col-span-1')} aria-label={`Open photo: ${IMAGE_ALT[p]}`}>
-            <Photo name={p} alt="" loading="lazy" className="aspect-[4/3] w-full object-cover transition-transform duration-700 group-hov:scale-105" />
+            <Photo name={p} alt="" loading="lazy" sizes="(min-width: 1024px) 25vw, 50vw" className="aspect-[4/3] w-full object-cover transition-transform duration-700 group-hov:scale-105" />
           </button>
         ))}
       </div>
       <Modal open={open !== null} onClose={() => setOpen(null)} title={open !== null ? IMAGE_ALT[shown[open]] : ''}>
         {open !== null && (
           <div className="flex flex-col gap-4">
-            <Photo name={shown[open]} alt="" className="w-full rounded-[var(--radius-sm)]" />
+            <Photo name={shown[open]} alt="" sizes="(min-width: 1024px) 60vw, 100vw" className="w-full rounded-[var(--radius-sm)]" />
             <div className="flex justify-between">
               <Button variant="outline" size="sm" onClick={() => setOpen((open + shown.length - 1) % shown.length)}>Previous</Button>
               <span className="self-center text-[13px] text-body">{open + 1} of {shown.length}</span>

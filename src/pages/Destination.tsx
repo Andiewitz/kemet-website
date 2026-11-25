@@ -1,4 +1,5 @@
-import { CalendarDays, Plane } from 'lucide-react'
+import CalendarDays from 'lucide-react/icons/calendar-days'
+import Plane from 'lucide-react/icons/plane'
 import { useParams } from 'react-router'
 
 import { ButtonLink } from '../components/Button'
