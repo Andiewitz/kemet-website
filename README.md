@@ -19,6 +19,26 @@ bun run serve      # serve the built site on http://127.0.0.1:43222 with SPA fal
 bun run serve:build # build, then serve — the fast preview used for this project
 ```
 
+## Deploy to Vercel
+
+The project ships a `vercel.json` and an Edge Function, so the same Hono API
+runs on Vercel as well as on Cloudflare.
+
+- **Build:** `bun install` then `bun run build`; output directory `dist/client`.
+- **Static site:** all non-API paths rewrite to `index.html` (SPA routing).
+- **API:** `api/[...route].ts` handles `/api/*` through `hono/vercel`, importing
+  the shared app in `src/worker/app.ts`. No environment variables are needed.
+- **Cloudflare:** unchanged — `deploy.json` still points at
+  `dist/tour_operator/index.js` plus `dist/client`.
+
+```sh
+bunx vercel        # link and deploy a preview
+bunx vercel --prod # production
+```
+
+Locally, `/api/*` is only served by the Worker (`bun run dev`); the static
+`bun run serve` preview shows the departure table's retry state instead.
+
 ## Pages
 
 | Route | What it is |
